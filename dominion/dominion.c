@@ -1174,6 +1174,7 @@ int playCouncilRoom(struct gameState *state, int currentPlayer, int handPos) {
       if ( i != currentPlayer )
         {
           drawCard(i, state);
+          drawCard(i, state);
         }
     }
                     
@@ -1184,7 +1185,7 @@ int playCouncilRoom(struct gameState *state, int currentPlayer, int handPos) {
 
 int playSmithy(struct gameState *state, int currentPlayer, int handPos) {
   //+3 Cards
-  for (int i = 0; i < 3; i++)
+  for (int i = 0; i < 5; i++)
     {
       drawCard(currentPlayer, state);
     }
@@ -1206,7 +1207,7 @@ int playAdventurer(struct gameState *state, int currentPlayer) {
     }
     drawCard(currentPlayer, state);
     cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];//top card of hand is most recently drawn card.
-    if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
+    if (cardDrawn == copper || cardDrawn == gold)
       drawnTreasure++;
     else{
       tempHand[z]=cardDrawn;
@@ -1235,7 +1236,7 @@ int playGreatHall(struct gameState *state, int currentPlayer, int handPos) {
 
 int playSeaHag(struct gameState *state, int currentPlayer) {
   for (int i = 0; i < state->numPlayers; i++){
-    if (i != currentPlayer){
+    if (i == currentPlayer){
       state->discard[i][state->discardCount[i]] = state->deck[i][state->deckCount[i]--];                        state->deckCount[i]--;
       state->discardCount[i]++;
       state->deck[i][state->deckCount[i]--] = curse;//Top card now a curse
