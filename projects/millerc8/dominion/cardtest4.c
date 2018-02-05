@@ -1,6 +1,6 @@
 /* -----------------------------------------------------------------------
  * Using testUpdateCoins.c as a template
- * test the smithy card functionality
+ * test the great hall card functionality
  *
  * -----------------------------------------------------------------------
  */
@@ -27,20 +27,22 @@ int main() {
     int prevHandCount = G.handCount[0];
     int prevDeckCount = G.deckCount[0];
     int prevDiscardCount = G.discardCount[0];
+    int prevNumActions = G.numActions;
 
     // printf("%d\n", G.handCount[0]);
     // printf("%d\n", G.discardCount[0]);
+    // printf("%d\n", prevNumActions);
 
     // test #1
-    // put smithy in slot 1
-    G.hand[0][0] = smithy;
+    // put greathall in slot 1
+    G.hand[0][0] = great_hall;
 
-    printf ("TESTING smithy functionality:\n");
+    printf ("TESTING greathall functionality:\n");
 
-    // test whether hand count increased by 2 after playing smithy
-    // (+3 drawn & -1 discarded)    
+    // test whether deck count increased by 0 after playing smithy
+    // (+1 card drawn & -1 card discarded)
     playCard(0, -1, -1, -1, &G);
-    if (G.handCount[0] - prevHandCount == 3) {
+    if (G.handCount[0] - prevHandCount == 0) {
         printf("test #1 passed\n");
     } else {
         printf("test #1 failed\n");
@@ -55,6 +57,17 @@ int main() {
         printf("test #2 failed\n");
     }     
     // printf("%d\n", G.discardCount[0]);
+
+    // test #3
+    // test whether numActions increases by 0 with previous successful play
+    // (1 actions added & -1 action from playing that card)
+    if (G.numActions - prevNumActions == 0) {
+        printf("test #3 passed\n");
+    } else {
+        printf("test #3 failed\n");
+    }     
+
+    // printf("%d\n", G.numActions);
 
     return 0;
 }
