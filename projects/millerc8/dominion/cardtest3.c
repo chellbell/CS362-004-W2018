@@ -16,7 +16,6 @@
 int main() {
     int seed = 1000;
     int numPlayer = 2;
-    int maxHandCount = 5;  
     int k[10] = {adventurer, council_room, feast, gardens, mine
                , remodel, smithy, village, baron, great_hall};
     struct gameState G;
@@ -25,7 +24,6 @@ int main() {
     G.whoseTurn = 0;
     // note what counts were before we played any cards
     int prevHandCount = G.handCount[0];
-    int prevDeckCount = G.deckCount[0];
     int prevDiscardCount = G.discardCount[0];
 
     int prevTreasures = 0;
@@ -36,9 +34,6 @@ int main() {
             prevTreasures++;
         }
     }
-
-    // printf("%d\n", G.handCount[0]);
-    // printf("%d\n", G.discardCount[0]);
 
     // test #1
     // put adventurer in slot 1
@@ -54,7 +49,6 @@ int main() {
     } else {
         printf("test #1 failed\n");
     }
-    // printf("%d\n", G.handCount[0]);
 
     // test #2
     // test whether discard pile increased with previous successful play
@@ -64,7 +58,6 @@ int main() {
     } else {
         printf("test #2 failed\n");
     }     
-    // printf("%d\n", G.discardCount[0]);
 
     // test #3
     // test whether treasures increases by 1 or 2 with previous successful play

@@ -15,7 +15,6 @@
 
 int main() {
     int i;
-    int seed = 1000;
     struct gameState G;
 
     // test #1

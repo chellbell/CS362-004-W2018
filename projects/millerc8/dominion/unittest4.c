@@ -14,8 +14,8 @@
 
 
 int main() {
-    int seed = 1000;
     int numPlayer = 3;
+    int seed = 1000;
     int k[10] = {adventurer, council_room, feast, gardens, mine
                , remodel, smithy, village, baron, great_hall};
     struct gameState G;
